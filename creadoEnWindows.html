@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Parejas para Ana</title>
+	<title>Pajejas para Ana</title>
 	<style>
 		body {
 			background: -webkit-gradient(linear, left bottom, left top, from(#0000c852), to(#009cda52));
@@ -24,12 +24,12 @@
 		}
 
 		img {
-			height: 13vh;
+			height: 150px;
 			margin: auto;
 		}
 
 		p {
-			padding: 32px 0;
+			padding: 60px 0;
 			margin: auto;
 			width: 150px;
 			text-align: center;
@@ -45,7 +45,7 @@
 
 		.wrapper {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 			grid-gap: 10px;
 			grid-auto-rows: minmax(100px, auto);
 			margin: auto;
@@ -79,10 +79,6 @@
 		.six {
 			grid-column: 2;
 			grid-row: 3;
-		}
-		.texto_knife {
-			grid-column: 3;
-			grid-row: 1;
 		}
 
 		#congratulation {
@@ -141,125 +137,32 @@
 
 <body>
 	<div class="wrapper">
-		<div class="eight droppable" data-match="e" class="ui-widget-header">
+		<div id="drop2" class="eight droppable" data-match="e" class="ui-widget-header">
 			<p>lampseta</p>
 		</div>
 		<div class="draggable one" data-match="a" class="ui-widget-content">
 			<img src="./tipeWriter.png" alt="">
 		</div>
-		<div class="two droppable" data-match="a" class="ui-widget-header">
+		<div id="drop1" class="two droppable" data-match="a" class="ui-widget-header">
 			<p>tipe writer</p>
 		</div>
 		<div class="draggable three" data-match="b" class="ui-widget-content">
 			<img src="./faxMachine.png" alt="">
 		</div>
-		<div class="four droppable" data-match="b" class="ui-widget-header">
+		<div id="drop2" class="four droppable" data-match="b" class="ui-widget-header">
 			<p>fax machine</p>
 		</div>
 		<div class="draggable six" data-match="c" class="ui-widget-content">
 			<img src="./desk-lamp.png" alt="">
 		</div>
 		<!-- Esto es una ficha con un nombre -->
-		<div class="five droppable" data-match="c" class="ui-widget-header">
-			<p>
-				<!-- Escribe a cuntionuacion el texo de la etiqueta -->lamp
-			</p>
+		<div id="drop2" class="five droppable" data-match="c" class="ui-widget-header">
+			<p><!-- Escribe a cuntionuacion el texo de la etiqueta -->lamp</p>
 		</div>
 		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
 		<div class="draggable seven" data-match="e" class="ui-widget-content">
 			<img src="./lampara-seta-roja-big.jpg" alt="">
 		</div>
-		<!-- fin -->
-
-		<!-- Esto es una ficha con un nombre -->
-		<div class="refrigerator droppable" data-match="refrigerator" class="ui-widget-header">
-			<p>
-				<!-- Escribe a cuntionuacion el texo de la etiqueta -->refrigerator
-			</p>
-		</div>
-		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
-		<div class="draggable refrigerator" data-match="refrigerator" class="ui-widget-content">
-			<img src="./refrigerator.png" alt="">
-		</div>
-		<!-- fin -->
-
-		<!-- Esto es una ficha con un nombre -->
-		<div class="microware droppable" data-match="microware" class="ui-widget-header">
-			<p>
-				<!-- Escribe a cuntionuacion el texo de la etiqueta -->microware
-			</p>
-		</div>
-		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
-		<div class="draggable microware" data-match="microware" class="ui-widget-content">
-			<img src="./microware.png" alt="">
-		</div>
-		<!-- fin -->
-
-		<!-- Esto es una ficha con un nombre -->
-		<div class="sink droppable" data-match="sink" class="ui-widget-header">
-			<p>
-				<!-- Escribe a cuntionuacion el texo de la etiqueta -->sink
-			</p>
-		</div>
-		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
-		<div class="draggable sink" data-match="sink" class="ui-widget-content">
-			<img src="./sink.png" alt="">
-		</div>
-		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
-		<div class="texto_spatula droppable" data-match="spatula" class="ui-widget-header">
-			<p>
-				<!-- Escribe a cuntionuacion el texo de la etiqueta -->spatula
-			</p>
-		</div>
-		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
-		<div class="draggable imagen_spatula" data-match="spatula" class="ui-widget-content">
-			<img src="./spatula.png" alt="">
-		</div>
-
-				<!-- Esto es una ficha con un nombre -->
-				<div class="texto_knife droppable" data-match="knife" class="ui-widget-header">
-					<p>
-						<!-- Escribe a cuntionuacion el texo de la etiqueta -->KNIFE
-					</p>
-				</div>
-				<!-- fin -->
-				<!-- Esto es una ficha con un nombre -->
-				<div class="draggable imagen_knife" data-match="knife" class="ui-widget-content">
-					<img src="./knife.png" alt="">
-				</div>
-				<!-- fin -->
-
-						<!-- Esto es una ficha con un nombre -->
-						<div class="texto_SPOOM droppable" data-match="SPOOM" class="ui-widget-header">
-							<p>
-								<!-- Escribe a cuntionuacion el texo de la etiqueta -->SPOOM
-							</p>
-						</div>
-						<!-- fin -->
-						<!-- Esto es una ficha con un nombre -->
-						<div class="draggable imagen_SPOOM" data-match="SPOOM" class="ui-widget-content">
-							<img src="./SPOOM.png" alt="">
-						</div>
-						<!-- fin -->
-
-		<!-- Esto es una ficha con un nombre -->
-		<div class="texto_next droppable" data-match="next" class="ui-widget-header">
-			<p>
-				<!-- Escribe a cuntionuacion el texo de la etiqueta -->next
-			</p>
-		</div>
-		<!-- fin -->
-		<!-- Esto es una ficha con un nombre -->
-		<div class="draggable imagen_next" data-match="next" class="ui-widget-content">
-			<img src="./next.png" alt="">
-		</div>
-		<!-- fin -->
 
 		<div class="js-container container" style="top:0px !important;"></div>
 
@@ -293,12 +196,12 @@
 		$(".two").css("grid-row", "2");
 	});
 	$("#comprobar").click(function () {
-		let notaDeCorte = 5;// pon aqui la nota de corte que quieras.
-		if (puntos > notaDeCorte) {
+		if (puntos == 3) {
+
 			$("#congratulation").show();
 			$(".wrapper").css("filter", "blur(8px)");
 		}
-		console.log(puntos);
+		console.log("funciona");
 	});
 </script>
 
