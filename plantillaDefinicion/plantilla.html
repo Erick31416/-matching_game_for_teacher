@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Parejas para Ana</title>
+	<style>
+		body {
+			background: -webkit-gradient(linear, left bottom, left top, from(#0000c852), to(#009cda52));
+			height: 98vh;
+		}
+
+		.draggable,
+		.droppable {
+			color: #4F275B;
+			border: solid #4F275B;
+			margin: auto;
+			width: 250px;
+			display: flex;
+			border-radius: 10px;
+			background: #d2d2ff;
+			font-size: x-large;
+		}
+
+		img {
+			height: 13vh;
+			margin: auto;
+		}
+
+		.droppable p {
+			padding: 32px 0;
+			margin: auto;
+			width: 150px;
+			text-align: center;
+		}
+		.draggable p {
+			font-size: medium;
+			padding: 32px 0;
+			margin: auto;
+			width: 150px;
+			text-align: center;
+		}
+
+		#drop1 {
+			top: 114px;
+		}
+
+		#drop2 {
+			top: 214px;
+		}
+
+		.wrapper {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 10px;
+			grid-auto-rows: minmax(100px, auto);
+			margin: auto;
+		}
+
+		.texto_air_conditioner {
+			grid-column: 1; grid-row: 1;
+		}
+		.imagen_air_conditioner {
+			grid-column: 2; grid-row: 1;
+		}
+		.pdefinition_air_conditioner {
+			grid-column: 3;	grid-row: 1;
+		}
+		.texto_blinds {
+			grid-column: 1; grid-row: 2;
+		}
+		.imagen_blinds {
+			grid-column: 2; grid-row: 2;
+		}
+		.pdefinition_blinds {
+			grid-column: 3;	grid-row: 2;
+		}		
+		.texto_cables {
+			grid-column: 1; grid-row: 3;
+		}
+		.imagen_cables {
+			grid-column: 2; grid-row: 3;
+		}
+		.pdefinition_cables {
+			grid-column: 3;	grid-row: 3;
+		}
+		.texto_carpet {
+			grid-column: 1; grid-row: 1;
+		}
+		.imagen_carpet {
+			grid-column: 2; grid-row: 1;
+		}
+		.pdefinition_carpet {
+			grid-column: 3;	grid-row: 1;
+		}
+		.texto_ceiling {
+			grid-column: 1; grid-row: 2;
+		}
+		.imagen_ceiling {
+			grid-column: 2; grid-row: 2;
+		}
+		.pdefinition_ceiling {
+			grid-column: 3;	grid-row: 2;
+		}
+
+
+
+
+
+		#congratulation {
+			text-align: center;
+			padding-top: 30px;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			background-color: #0000c852;
+			/*
+			filter: blur(8px);
+  			-webkit-filter: blur(8px);
+			*/
+		}
+
+		#comprobarw {
+			margin: auto;
+			width: fit-content;
+		}
+
+		#comprobar {
+			padding: 2rem;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+	<script>
+		var puntos = 0;
+		$(function () {
+			$(".draggable").draggable({ revert: "invalid" });
+
+			$(".droppable").droppable({
+				drop: function (event, ui) {
+					console.log({ event });
+					console.log(ui.draggable.data('match'));
+					if ($(this).data('match') == ui.draggable.data('match')) {
+						$(this)
+							.addClass("ui-state-highlight")
+							.find("p")
+							.append("<br>Correcto!");
+						ui.draggable.hide();
+						puntos++;
+						console.log({ puntos });
+					} else {
+						$(this)
+							.addClass("ui-state-highlight")
+							.find("p")
+							.append("<br>Incorrecto :(");
+						ui.draggable.hide();
+					}
+				}
+			});
+		});
+		$("#cerrar").click(function () {
+			console.log("funciona");
+			$("#congratulation").hide();
+		});
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_desktop_computer droppable" data-match="desktop_computer" class="ui-widget-header">
+			<p>
+				desktop_computer
+			</p>
+		</div>
+		<div class="draggable imagen_desktop_computer" data-match="desktop_computer" class="ui-widget-content">
+			<img src="./desktop_computer.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_desktop_computer" data-match="desktop_computer" class="ui-widget-content">
+			<p>
+				definition_desktop_computer
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_cables droppable" data-match="cables" class="ui-widget-header">
+			<p>
+				cables
+			</p>
+		</div>
+		<div class="draggable imagen_cables" data-match="cables" class="ui-widget-content">
+			<img src="./cables.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_cables" data-match="cables" class="ui-widget-content">
+			<p>
+				They carry electricity around the house
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_pipe droppable" data-match="pipe" class="ui-widget-header">
+			<p>
+				pipe
+			</p>
+		</div>
+		<div class="draggable imagen_pipe" data-match="pipe" class="ui-widget-content">
+			<img src="./pipe.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_pipe" data-match="pipe" class="ui-widget-content">
+			<p>
+				It carries water around the house
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_carpet droppable" data-match="carpet" class="ui-widget-header">
+			<p>
+				carpet
+			</p>
+		</div>
+		<div class="draggable imagen_carpet" data-match="carpet" class="ui-widget-content">
+			<img src="./carpet.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_carpet" data-match="carpet" class="ui-widget-content">
+			<p>
+				It covers the floor
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_ceiling droppable" data-match="ceiling" class="ui-widget-header">
+			<p>
+				ceiling
+			</p>
+		</div>
+		<div class="draggable imagen_ceiling" data-match="ceiling" class="ui-widget-content">
+			<img src="./ceiling.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_ceiling" data-match="ceiling" class="ui-widget-content">
+			<p>
+				It is above our heads when we are at home
+			</p>
+		</div>
+
+				<!-- Esto es una ficha con un nombre -->
+				<div class="texto_radiator droppable" data-match="radiator" class="ui-widget-header">
+					<p>
+						radiator
+					</p>
+				</div>
+				<div class="draggable imagen_radiator" data-match="radiator" class="ui-widget-content">
+					<img src="./radiator.jpg" alt="">
+				</div>
+				<div class="draggable pdefinition_radiator" data-match="radiator" class="ui-widget-content">
+					<p>
+						It keeps the house warm in winter
+					</p>
+				</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_blinds droppable" data-match="blinds" class="ui-widget-header">
+			<p>
+				blinds
+			</p>
+		</div>
+		<div class="draggable imagen_blinds" data-match="blinds" class="ui-widget-content">
+			<img src="./blinds.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_blinds" data-match="blinds" class="ui-widget-content">
+			<p>
+				It keeps the sunlight out 
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_window droppable" data-match="window" class="ui-widget-header">
+			<p>
+				window
+			</p>
+		</div>
+		<div class="draggable imagen_window" data-match="window" class="ui-widget-content">
+			<img src="./window.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_window" data-match="window" class="ui-widget-content">
+			<p>
+				definition_window
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_wall droppable" data-match="wall" class="ui-widget-header">
+			<p>
+				wall
+			</p>
+		</div>
+		<div class="draggable imagen_wall" data-match="wall" class="ui-widget-content">
+			<img src="./wall.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_wall" data-match="wall" class="ui-widget-content">
+			<p>
+				There are four in each room
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_solar_panel droppable" data-match="solar_panel" class="ui-widget-header">
+			<p>
+				solar_panel
+			</p>
+		</div>
+		<div class="draggable imagen_solar_panel" data-match="solar_panel" class="ui-widget-content">
+			<img src="./solar_panel.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_solar_panel" data-match="solar_panel" class="ui-widget-content">
+			<p>
+				It uses sunlight to produce electricity	
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_roof droppable" data-match="roof" class="ui-widget-header">
+			<p>
+				roof
+			</p>
+		</div>
+		<div class="draggable imagen_roof" data-match="roof" class="ui-widget-content">
+			<img src="./roof.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_roof" data-match="roof" class="ui-widget-content">
+			<p>
+				It is at the top of every house
+			</p>
+		</div>
+
+				<!-- Esto es una ficha con un nombre air_conditioner-->
+				<div class="texto_air_conditioner droppable" data-match="air_conditioner" class="ui-widget-header">
+					<p>
+						air_conditioner
+					</p>
+				</div>
+				<div class="draggable imagen_air_conditioner" data-match="air_conditioner" class="ui-widget-content">
+					<img src="./air_conditioner.jpg" alt="">
+				</div>
+				<div class="draggable pdefinition_air_conditioner" data-match="air_conditioner" class="ui-widget-content">
+					<p>
+						It keeps the house cool in summer and have a remote control
+					</p>
+				</div>
+
+		<!-- Esto es una ficha con un nombre fan-->
+		<div class="texto_fan droppable" data-match="fan" class="ui-widget-header">
+			<p>
+				fan
+			</p>
+		</div>
+		<div class="draggable imagen_fan" data-match="fan" class="ui-widget-content">
+			<img src="./fan.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_fan" data-match="fan" class="ui-widget-content">
+			<p>
+				It keeps the house cool in summer
+			</p>
+		</div>
+		<!-- Esto es una ficha con un nombre curtains-->
+		<div class="texto_curtains droppable" data-match="curtains" class="ui-widget-header">
+			<p>
+				curtains
+			</p>
+		</div>
+		<div class="draggable imagen_curtains" data-match="curtains" class="ui-widget-content">
+			<img src="./curtains.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_curtains" data-match="curtains" class="ui-widget-content">
+			<p>
+				It keeps the sunlight out and make the room beautiful
+			</p>
+		</div>
+
+		<!-- Esto es una ficha con un nombre door-->
+		<div class="texto_door droppable" data-match="door" class="ui-widget-header">
+			<p>
+				door
+			</p>
+		</div>
+		<div class="draggable imagen_door" data-match="door" class="ui-widget-content">
+			<img src="./door.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_door" data-match="door" class="ui-widget-content">
+			<p>
+				definition_door
+			</p>
+		</div>
+
+
+		<!-- Esto es una ficha con un nombre next-->
+		<div class="texto_next droppable" data-match="next" class="ui-widget-header">
+			<p>
+				next
+			</p>
+		</div>
+		<div class="draggable imagen_next" data-match="next" class="ui-widget-content">
+			<img src="./next.jpg" alt="">
+		</div>
+		<div class="draggable pdefinition_next" data-match="next" class="ui-widget-content">
+			<p>
+				definition_next
+			</p>
+		</div>
+
+		<div class="js-container container" style="top:0px !important;"></div>
+
+	</div>
+	<div id="comprobarw">
+		<button id="comprobar">comprobar</button>
+	</div>
+
+	<div id="congratulation">
+		<div class="checkmark-circle">
+			<div class="background"></div>
+			<div class="checkmark draw"></div>
+		</div>
+		<h1>Congratulations!</h1>
+		<p>You are all set. Well done!</p>
+		<button id="cerrar">Continue</button>
+	</div>
+
+</body>
+<script>
+	$(document).ready(function () {
+		$("#congratulation").hide();
+	});
+	$("#cerrar").click(function () {
+		console.log("funciona");
+		$("#congratulation").hide();
+		puntos = 0;
+		$(".wrapper").css("filter", "blur(0)");
+		$(".draggable").show();
+		$(".two").css("grid-column", "1");
+		$(".two").css("grid-row", "2");
+	});
+	$("#comprobar").click(function () {
+		let notaDeCorte = 5;// pon aqui la nota de corte que quieras.
+		if (puntos > notaDeCorte) {
+			$("#congratulation").show();
+			$(".wrapper").css("filter", "blur(8px)");
+		}
+		console.log(puntos);
+	});
+</script>
+
+</html>

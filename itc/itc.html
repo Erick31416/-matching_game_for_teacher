@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Parejas para Ana</title>
+	<style>
+		body {
+			background: -webkit-gradient(linear, left bottom, left top, from(#0000c852), to(#009cda52));
+			height: 98vh;
+		}
+
+		.draggable,
+		.droppable {
+			color: #4F275B;
+			border: solid #4F275B;
+			margin: auto;
+			width: 250px;
+			display: flex;
+			border-radius: 10px;
+			background: #d2d2ff;
+			font-size: x-large;
+		}
+
+		img {
+			height: 13vh;
+			margin: auto;
+		}
+
+		p {
+			padding: 32px 0;
+			margin: auto;
+			width: 150px;
+			text-align: center;
+		}
+
+		#drop1 {
+			top: 114px;
+		}
+
+		#drop2 {
+			top: 214px;
+		}
+
+		.wrapper {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 10px;
+			grid-auto-rows: minmax(100px, auto);
+			margin: auto;
+		}
+
+		.one {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		.two {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		.three {
+			grid-column: 1;
+			grid-row: 3;
+		}
+
+		.four {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		.five {
+			grid-column: 2;
+			grid-row: 2;
+		}
+
+		.six {
+			grid-column: 2;
+			grid-row: 3;
+		}
+		.texto_knife {
+			grid-column: 3;
+			grid-row: 1;
+		}
+
+		#congratulation {
+			text-align: center;
+			padding-top: 30px;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			background-color: #0000c852;
+			/*
+			filter: blur(8px);
+  			-webkit-filter: blur(8px);
+			*/
+		}
+
+		#comprobarw {
+			margin: auto;
+			width: fit-content;
+		}
+
+		#comprobar {
+			padding: 2rem;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+	<script>
+		var puntos = 0;
+		$(function () {
+			$(".draggable").draggable({ revert: "invalid" });
+
+			$(".droppable").droppable({
+				drop: function (event, ui) {
+					console.log({ event });
+					console.log(ui.draggable.data('match'));
+					if ($(this).data('match') == ui.draggable.data('match')) {
+						$(this)
+							.addClass("ui-state-highlight")
+							.find("p")
+							.html("Correcto!");
+						ui.draggable.hide();
+						puntos++;
+						console.log({ puntos });
+					} else {
+						$(this)
+							.addClass("ui-state-highlight")
+							.find("p")
+							.html("Incorrecto :(");
+						ui.draggable.hide();
+					}
+				}
+			});
+		});
+		$("#cerrar").click(function () {
+			console.log("funciona");
+			$("#congratulation").hide();
+		});
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="eight droppable" data-match="MP3_player" class="ui-widget-header">
+			<p>MP3_player</p>
+		</div>
+		<!-- Esto es una ficha con un nombre -->
+		<div class="draggable seven" data-match="MP3_player" class="ui-widget-content">
+			<img src="./MP3_player.jpg" alt="">
+		</div>
+		<!-- fin -->
+		<div class="draggable one" data-match="remote_control" class="ui-widget-content">
+			<img src="./remote_control.jpg" alt="">
+		</div>
+		<div class="two droppable" data-match="remote_control" class="ui-widget-header">
+			<p>remote_control</p>
+		</div>
+		<div class="draggable three" data-match="laptop" class="ui-widget-content">
+			<img src="./laptop.jpg" alt="">
+		</div>
+		<div class="four droppable" data-match="laptop" class="ui-widget-header">
+			<p>laptop</p>
+		</div>
+		<div class="draggable six" data-match="handheld_game_console" class="ui-widget-content">
+			<img src="./handheld_game_console.jpg" alt="">
+		</div>
+		<!-- Esto es una ficha con un nombre -->
+		<div class="five droppable" data-match="handheld_game_console" class="ui-widget-header">
+			<p>
+				<!-- Escribe a cuntionuacion el texo de la etiqueta -->handheld_game_console
+			</p>
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="games_console droppable" data-match="games_console" class="ui-widget-header">
+			<p>
+				<!-- Escribe a cuntionuacion el texo de la etiqueta -->games_console
+			</p>
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="draggable games_console" data-match="games_console" class="ui-widget-content">
+			<img src="./games_console.jpg" alt="">
+		</div>
+		<!-- fin -->
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="cordless_phone droppable" data-match="cordless_phone" class="ui-widget-header">
+			<p>
+				<!-- Escribe a cuntionuacion el texo de la etiqueta -->cordless_phone
+			</p>
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="draggable cordless_phone" data-match="cordless_phone" class="ui-widget-content">
+			<img src="./cordless_phone.jpg" alt="">
+		</div>
+		<!-- fin -->
+
+		<!-- Esto es una ficha con un nombre -->
+		<div class="DVD_player droppable" data-match="DVD_player" class="ui-widget-header">
+			<p>
+				<!-- Escribe a cuntionuacion el texo de la etiqueta -->DVD_player
+			</p>
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="draggable DVD_player" data-match="DVD_player" class="ui-widget-content">
+			<img src="./DVD_player.jpg" alt="">
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_digital_camera droppable" data-match="digital_camera" class="ui-widget-header">
+			<p>
+				<!-- Escribe a cuntionuacion el texo de la etiqueta -->digital_camera
+			</p>
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="draggable imagen_digital_camera" data-match="digital_camera" class="ui-widget-content">
+			<img src="./digital_camera.jpg" alt="">
+		</div>
+		<!-- Esto es una ficha con un nombre -->
+		<div class="texto_desktop_computer droppable" data-match="desktop_computer" class="ui-widget-header">
+			<p>
+				<!-- Escribe a cuntionuacion el texo de la etiqueta -->desktop_computer
+			</p>
+		</div>
+		<!-- fin -->
+		<!-- Esto es una ficha con un nombre -->
+		<div class="draggable imagen_desktop_computer" data-match="desktop_computer" class="ui-widget-content">
+			<img src="./desktop_computer.jpg" alt="">
+		</div>
+
+		<div class="js-container container" style="top:0px !important;"></div>
+
+	</div>
+	<div id="comprobarw">
+		<button id="comprobar">comprobar</button>
+	</div>
+
+	<div id="congratulation">
+		<div class="checkmark-circle">
+			<div class="background"></div>
+			<div class="checkmark draw"></div>
+		</div>
+		<h1>Congratulations!</h1>
+		<p>You are all set. Well done!</p>
+		<button id="cerrar">Continue</button>
+	</div>
+
+</body>
+<script>
+	$(document).ready(function () {
+		$("#congratulation").hide();
+	});
+	$("#cerrar").click(function () {
+		console.log("funciona");
+		$("#congratulation").hide();
+		puntos = 0;
+		$(".wrapper").css("filter", "blur(0)");
+		$(".draggable").show();
+		$(".two").css("grid-column", "1");
+		$(".two").css("grid-row", "2");
+	});
+	$("#comprobar").click(function () {
+		let notaDeCorte = 5;// pon aqui la nota de corte que quieras.
+		if (puntos > notaDeCorte) {
+			$("#congratulation").show();
+			$(".wrapper").css("filter", "blur(8px)");
+		}
+		console.log(puntos);
+	});
+</script>
+
+</html>
